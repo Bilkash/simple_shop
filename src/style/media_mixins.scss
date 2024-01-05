@@ -1,0 +1,35 @@
+@mixin media-query($breakpoint) {
+  @if $breakpoint == s_sm {
+    @media (max-width: 360px) {
+      @content;
+    }
+  } @else if $breakpoint == m_sm {
+    @media (min-width: 361px) and (max-width: 415px) {
+      @content;
+    }
+  } @else if $breakpoint == l_sm {
+    @media (min-width: 416px) and (max-width: 640px) {
+      @content
+    }
+  } @else if $breakpoint == tablet {
+    @media (min-width: 641px) and (max-width: 1024px) {
+      @content;
+    }
+  } @else if $breakpoint == s_pc {
+    @media (min-width: 1025px) and (max-width: 1367px) {
+      @content;
+    }
+  } @else if $breakpoint == m_pc {
+    @media (min-width: 1367px) and (max-width: 1441px) {
+      @content;
+    }
+  } @else if $breakpoint == l_pc {
+    @media (min-width: 1441px) and (max-width: 1921px) {
+      @content;
+    }
+  } @else if $breakpoint == xl_pc {
+    @media (min-width: 1921px) and (max-width: 2560px) {
+      @content;
+    }
+  }
+}

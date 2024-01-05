@@ -1,0 +1,107 @@
+@import "../style/colors";
+@import "../style/media_mixins";
+@import "../style/sizes";
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  height: 80px;
+  width: 100vw;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: $border_color;
+
+  @include media-query(tablet) {
+    width: calc(100vw - (#{$tablet_sidebar} + 25px));
+  }
+
+  @include media-query(s_pc) {
+    width: calc(100vw - #{$desktop_sidebar});
+  }
+
+  @include media-query(m_pc) {
+    width: calc(100vw - #{$desktop_sidebar});
+  }
+
+  @include media-query(l_pc) {
+    width: calc(100vw - #{$desktop_sidebar});
+  }
+
+  @include media-query(xl_pc) {
+    width: $desktop_sidebar;
+  }
+}
+
+.cart {
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+  margin-right: 15px;
+}
+
+.searchWrapper {
+  margin-left: 15px;
+  width: 220px;
+
+  @include media-query(s_sm) {
+    margin-left: 0;
+    width: 60%;
+  }
+
+  @include media-query(m_sm) {
+    margin-left: 0;
+    width: 60%;
+  }
+
+  @include media-query(l_sm) {
+    margin-left: 0;
+    width: 60%;
+  }
+
+  @include media-query(tablet) {
+    width: 50%;
+  }
+
+  @include media-query(s_pc) {
+    width: 50%;
+  }
+
+  @include media-query(m_pc) {
+    width: 50%;
+  }
+
+  @include media-query(l_pc) {
+    width: 350px;
+  }
+
+  @include media-query(xl_pc) {
+    width: 50%;
+  }
+}
+
+.menuButton {
+  display: block;
+  margin-left: 15px;
+
+  @include media-query(tablet) {
+    display: none;
+  }
+
+  @include media-query(s_pc) {
+    display: none;
+  }
+
+  @include media-query(m_pc) {
+    display: none;
+  }
+
+  @include media-query(l_pc) {
+    display: none;
+  }
+
+  @include media-query(xl_pc) {
+    display: none;
+  }
+}
