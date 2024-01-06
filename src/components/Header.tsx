@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React from "react";
 import Image from "next/image";
@@ -15,36 +15,35 @@ import {AppType} from "@/types";
 import {openSideBar} from "@/lib/features/appSlice";
 
 export default function Header(): React.JSX.Element {
-  const dispatch = useDispatch();
-  const appState = useSelector((state: { app: AppType }) => state.app);
+    const dispatch = useDispatch();
 
-  return (
-    <div className={styles.wrapper}>
-      <div className={styles.menuButton} onClick={() => dispatch(openSideBar(true))}>
-        <MenuIcon/>
-      </div>
+    return (
+        <div className={styles.wrapper}>
+            <div className={styles.menuButton} onClick={() => dispatch(openSideBar(true))}>
+                <MenuIcon/>
+            </div>
 
-      <Box className={styles.searchWrapper}>
-        <TextField
-          label="Search"
-          id="outlined-size-small"
-          fullWidth
-          defaultValue=""
-          size="small"
-          InputProps={{
-            endAdornment: <InputAdornment position="end">
-              <SearchIcon/>
-            </InputAdornment>,
-          }}
-        />
-      </Box>
+            <Box className={styles.searchWrapper}>
+                <TextField
+                    label="Search"
+                    id="outlined-size-small"
+                    fullWidth
+                    defaultValue=""
+                    size="small"
+                    InputProps={{
+                        endAdornment: <InputAdornment position="end">
+                            <SearchIcon/>
+                        </InputAdornment>,
+                    }}
+                />
+            </Box>
 
-      <Image
-        priority
-        src={cartSvg}
-        alt="cart"
-        className={styles.cart}
-      />
-    </div>
-  )
+            <Image
+                priority
+                src={cartSvg}
+                alt="cart"
+                className={styles.cart}
+            />
+        </div>
+    );
 }

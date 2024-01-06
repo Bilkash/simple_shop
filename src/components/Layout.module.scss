@@ -17,34 +17,32 @@
 
   @include media-query(tablet) {
     display: block;
-    min-width: $tablet_sidebar;
+    width: $tablet_sidebar;
   }
 
   @include media-query(s_pc) {
     display: block;
-    width: $desktop_sidebar;
+    min-width: $desktop_sidebar;
   }
 
   @include media-query(m_pc) {
     display: block;
-    width: $desktop_sidebar;
+    min-width: $desktop_sidebar;
   }
 
   @include media-query(l_pc) {
     display: block;
-    width: $desktop_sidebar;
+    min-width: $desktop_sidebar;
   }
 
   @include media-query(xl_pc) {
     display: block;
-    width: $desktop_sidebar;
+    min-width: $desktop_sidebar;
   }
 }
 
 .content {
-  padding: 32px 20px;
   font-size: 24px;
-  font-weight: 700;
 }
 
 .inner {
@@ -53,7 +51,7 @@
 }
 
 .logo {
-  margin-left: 15px;
+  margin-left: 40px;
   margin-top: 18px;
   display: none;
 

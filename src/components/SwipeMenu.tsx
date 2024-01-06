@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, {useState} from "react";
 import {SwipeableDrawer} from "@mui/material";
@@ -12,34 +12,32 @@ interface SwipeMenuProps {
 }
 
 export default function SwipeMenu() {
-  const dispatch = useDispatch();
-  const appState = useSelector((state: { app: AppType }) => state.app);
+    const dispatch = useDispatch();
+    const appState = useSelector((state: { app: AppType }) => state.app);
 
-  console.log(appState)
-
-  const toggleDrawer =
+    const toggleDrawer =
     (open: boolean) =>
-      (event: React.KeyboardEvent | React.MouseEvent) => {
-        if (
-          event &&
+        (event: React.KeyboardEvent | React.MouseEvent) => {
+            if (
+                event &&
           event.type === 'keydown' &&
           ((event as React.KeyboardEvent).key === 'Tab' ||
             (event as React.KeyboardEvent).key === 'Shift')
-        ) {
-          return;
-        }
+            ) {
+                return;
+            }
 
-        dispatch(openSideBar(open))
-      };
+            dispatch(openSideBar(open));
+        };
 
-  return (
-    <SwipeableDrawer
-      anchor={"left"}
-      open={appState.isSideBarOpen}
-      onClose={toggleDrawer(false)}
-      onOpen={toggleDrawer(true)}
-    >
+    return (
+        <SwipeableDrawer
+            anchor={"left"}
+            open={appState.isSideBarOpen}
+            onClose={toggleDrawer(false)}
+            onOpen={toggleDrawer(true)}
+        >
       content
-    </SwipeableDrawer>
-  )
+        </SwipeableDrawer>
+    );
 }

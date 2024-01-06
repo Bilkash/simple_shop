@@ -1,0 +1,25 @@
+@import "../style/colors";
+
+.wrapper {
+  display: flex;
+  margin: 0 auto;
+  width: 200px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 30px 70px;
+}
+
+.arrows {
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: $border_color;
+  }
+}
