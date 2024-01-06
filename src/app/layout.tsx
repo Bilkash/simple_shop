@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import {JetBrains_Mono} from 'next/font/google'
 import "./global.scss";
 import StoreProvider from "@/app/StoreProvider";
+import {StyledEngineProvider} from "@mui/styled-engine";
+import SwipeMenu from "@/components/SwipeMenu";
 
 const jetBrains_Mono = JetBrains_Mono({ subsets: ['latin'] })
 
@@ -19,7 +21,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={jetBrains_Mono.className}>
         <StoreProvider>
-          {children}
+          <StyledEngineProvider injectFirst>
+            <SwipeMenu/>
+            {children}
+          </StyledEngineProvider>
         </StoreProvider>
       </body>
     </html>

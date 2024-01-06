@@ -10,16 +10,16 @@ import smallLogoSvg from "../../public/smallLogo.svg";
 import SwipeMenu from "@/components/SwipeMenu";
 import { StyledEngineProvider } from '@mui/material/styles';
 import {AppType} from "@/types";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {openSideBar} from "@/lib/features/appSlice";
 
 interface  LayoutProps {
   children: React.ReactNode
 }
 
 export default function Layout({children}: LayoutProps): React.JSX.Element {
+  const dispatch = useDispatch();
   const appState = useSelector((state: { app: AppType }) => state.app);
-
-  console.log(appState)
 
   return (
     <div className={styles.wrapper}>
@@ -32,6 +32,7 @@ export default function Layout({children}: LayoutProps): React.JSX.Element {
         />
 
         <Image
+          onClick={() => dispatch(openSideBar(appState,true))}
           priority
           src={smallLogoSvg}
           alt="smallLogo"
