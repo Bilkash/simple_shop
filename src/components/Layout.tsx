@@ -1,18 +1,14 @@
 "use client";
 
-import React from "react";
+import React, {useEffect} from "react";
 
 import styles from "./Layout.module.scss";
 import Header from "@/components/Header";
-import Image from "next/image";
-import logoSvg from "../../public/logo.svg";
-import smallLogoSvg from "../../public/smallLogo.svg";
-import SwipeMenu from "@/components/SwipeMenu";
-import { StyledEngineProvider } from '@mui/material/styles';
 import {AppType} from "@/types";
 import {useDispatch, useSelector} from "react-redux";
-import {openSideBar} from "@/lib/features/appSlice";
-import Categories from "@/components/Categories";
+import {getAllCategories} from "@/requests/getAllCategories";
+import {setCategories} from "@/lib/features/productSlice";
+import Sidebar from "@/components/Sidebar";
 
 interface  LayoutProps {
   children: React.ReactNode
@@ -20,28 +16,14 @@ interface  LayoutProps {
 
 export default function Layout({children}: LayoutProps): React.JSX.Element {
     const dispatch = useDispatch();
-    const appState = useSelector((state: { app: AppType }) => state.app);
+
+    useEffect(() => {
+        getAllCategories().then(data => dispatch(setCategories(data)));
+    }, []);
 
     return (
         <div className={styles.wrapper}>
-            <div className={styles.sidebar}>
-                <Image
-                    priority
-                    src={logoSvg}
-                    alt="logo"
-                    className={styles.logo}
-                />
-
-                <Image
-                    onClick={() => dispatch(openSideBar(appState,true))}
-                    priority
-                    src={smallLogoSvg}
-                    alt="smallLogo"
-                    className={styles.smallLogo}
-                />
-
-                <Categories/>
-            </div>
+            <Sidebar/>
 
             <div className={styles.inner}>
                 <Header/>

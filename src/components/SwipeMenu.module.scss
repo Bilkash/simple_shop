@@ -1,0 +1,14 @@
+@import "../style/colors";
+@import "../style/sizes";
+
+.wrapper {
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: $border_color;
+  padding: 8px 12px 20px 12px;
+}
+
+.logo {
+  margin-left: 20px;
+  margin-top: 18px;
+}

@@ -10,7 +10,10 @@ type CategoryProps = {
 
 export default function Category({name}: CategoryProps) {
     return (
-        <Link className={styles.link} href={`/category/${name}`}>
+        <Link
+            className={styles.link}
+            href={`/category/${name}`}
+        >
             <div className={styles.category}>
                 {name}
             </div>

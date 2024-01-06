@@ -9,7 +9,7 @@ export interface ProductSliceType {
   startIndex: number,
   endIndex: number,
   items: Product[],
-  categories: string[]
+  categories: string[],
 };
 
 export type Product = {

@@ -1,15 +1,16 @@
 "use client";
 
-import React, {useState} from "react";
+import React from "react";
 import {SwipeableDrawer} from "@mui/material";
 import {useDispatch, useSelector} from "react-redux";
 import {AppType} from "@/types";
 import {openSideBar} from "@/lib/features/appSlice";
+import logoSvg from "../../public/logo.svg";
+import Image from "next/image";
+import Categories from "@/components/Categories";
 
-interface SwipeMenuProps {
-  open: boolean;
-  setOpen: (open: boolean) => void;
-}
+import styles from "./SwipeMenu.module.scss";
+import Link from "next/link";
 
 export default function SwipeMenu() {
     const dispatch = useDispatch();
@@ -37,7 +38,18 @@ export default function SwipeMenu() {
             onClose={toggleDrawer(false)}
             onOpen={toggleDrawer(true)}
         >
-      content
+            <div className={styles.wrapper}>
+                <Link href={"/"}>
+                    <Image
+                        priority
+                        src={logoSvg}
+                        alt="logo"
+                        className={styles.logo}
+                    />
+                </Link>
+
+                <Categories/>
+            </div>
         </SwipeableDrawer>
     );
 }

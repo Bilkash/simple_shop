@@ -13,10 +13,6 @@
   border-bottom-style: solid;
   border-bottom-color: $border_color;
 
-  @include media-query(tablet) {
-    width: calc(100vw - (#{$tablet_sidebar} + 25px));
-  }
-
   @include media-query(s_pc) {
     width: calc(100vw - (#{$desktop_sidebar} + 42px));
   }
@@ -84,10 +80,6 @@
   cursor: pointer;
   display: block;
   margin-left: 15px;
-
-  @include media-query(tablet) {
-    display: none;
-  }
 
   @include media-query(s_pc) {
     display: none;

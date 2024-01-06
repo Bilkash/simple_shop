@@ -4,12 +4,12 @@ import Layout from "@/components/Layout";
 import {getAllProducts} from "@/requests/getAllProducts";
 import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {getProducts, setCategories, setPageItems} from "@/lib/features/productSlice";
+import {getProducts, setCategories, setPageItems, wipeProducts} from "@/lib/features/productSlice";
 import {ProductSliceType} from "@/types";
 import ProductCard from "@/components/ProductCard";
 import Pagination from "@/components/Pagination";
 import styles from "./page.module.scss";
-import {getAllCategories} from "@/requests/getAllCategories";
+import ProductList from "@/components/ProductList";
 
 export default function Home() {
     const dispatch = useDispatch();
@@ -24,7 +24,6 @@ export default function Home() {
 
     useEffect(() => {
         getAllProducts().then(data => dispatch(getProducts(data)));
-        getAllCategories().then(data => dispatch(setCategories(data)));
     }, []);
 
     useEffect(() => {
@@ -33,15 +32,9 @@ export default function Home() {
         }
     }, [startIndex, endIndex, products]);
 
-    const renderProducts = () => {
-        return items.map((product) => (<ProductCard key={product.id} {...product}/>));
-    };
-
     return (
         <Layout>
-            <div className={styles.productWrapper}>
-                {renderProducts()}
-            </div>
+            <ProductList products={items}/>
             <Pagination/>
         </Layout>
     );

@@ -2,23 +2,12 @@
 @import "../style/media_mixins";
 @import "../style/sizes";
 
-.wrapper {
-  min-height: 100vh;
-  background-color: white;
-  display: flex;
-}
-
 .sidebar {
   display: none;
   border-right-width: 1px;
   border-right-style: solid;
   border-right-color: $border_color;
   padding: 8px 12px 20px 12px;
-
-  @include media-query(tablet) {
-    display: block;
-    width: $tablet_sidebar;
-  }
 
   @include media-query(s_pc) {
     display: block;
@@ -39,13 +28,4 @@
     display: block;
     min-width: $desktop_sidebar;
   }
-}
-
-.content {
-  font-size: 24px;
-}
-
-.inner {
-  display: flex;
-  flex-direction: column;
 }

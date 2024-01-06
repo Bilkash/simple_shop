@@ -1,0 +1,33 @@
+@import "../style/media_mixins";
+
+.logo {
+  margin-left: 40px;
+  margin-top: 18px;
+  display: none;
+
+  @include media-query(s_pc) {
+    display: block;
+  }
+
+  @include media-query(m_pc) {
+    display: block;
+  }
+
+  @include media-query(l_pc) {
+    display: block;
+  }
+
+  @include media-query(xl_pc) {
+    display: block;
+  }
+}
+
+.smallLogo {
+  cursor: pointer;
+  display: none;
+  margin-top: 20px;
+
+  @include media-query(tablet) {
+    display: block;
+  }
+}

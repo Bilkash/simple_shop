@@ -31,17 +31,21 @@ export default function Pagination() {
         }
     };
 
-    return (
-        <div className={styles.wrapper}>
-            <div onClick={() => prevPage()} className={styles.arrows}>
-                <NavigateBeforeIcon/>
-            </div>
+    if (products.length > pageSize) {
+        return (
+            <div className={styles.wrapper}>
+                <div onClick={() => prevPage()} className={styles.arrows}>
+                    <NavigateBeforeIcon/>
+                </div>
 
-            <div>{page}</div>
+                <div>{page}</div>
 
-            <div onClick={() => nextPage()} className={styles.arrows}>
-                <NavigateNextIcon/>
+                <div onClick={() => nextPage()} className={styles.arrows}>
+                    <NavigateNextIcon/>
+                </div>
             </div>
-        </div>
-    );
+        );
+    } else {
+        return null;
+    }
 }

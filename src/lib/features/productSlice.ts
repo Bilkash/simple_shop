@@ -35,6 +35,13 @@ const productSlice = createSlice({
         },
         setCategories: (state, action) => {
             state.categories = action.payload;
+        },
+        wipeProducts: (state) => {
+            state.page = 1;
+            state.startIndex = 1;
+            state.endIndex = 6;
+            state.products = [];
+            state.items = [];
         }
     }
 });
@@ -46,7 +53,8 @@ export const {
     setStartIndex,
     setEndIndex,
     setPageItems,
-    setCategories
+    setCategories,
+    wipeProducts,
 } = productSlice.actions;
 
 export default productSlice.reducer;
