@@ -1,0 +1,65 @@
+@import "../style/media_mixins";
+
+.wrapper {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+  padding: 15px;
+  height: calc(100vh - 111px);
+
+  @include media-query(s_sm) {
+    display: block;
+  }
+
+  @include media-query(m_sm) {
+    display: block;
+  }
+
+  @include media-query(l_sm) {
+    display: block;
+  }
+}
+
+.image {
+  width: 280px;
+  height: 350px;
+}
+
+.leftSide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rightSide {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.category {
+  font-size: 14px;
+  margin-top: 15px;
+}
+
+.title {
+  font-size: 24px;
+}
+
+.description {
+  font-size: 16px;
+}
+
+.rating {
+  font-size: 16px;
+}
+
+.priceSection {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

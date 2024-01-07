@@ -8,6 +8,8 @@ import getProduct from "@/requests/getProduct";
 
 import styles from "./page.module.scss";
 import Image from "next/image";
+import BuyButton from "@/components/BuyButton";
+import ProductDetail from "@/components/ProductDetail";
 
 export default function ProductPage() {
     const [productData, setProductData] = useState<Product | null>(null);
@@ -20,63 +22,13 @@ export default function ProductPage() {
 
     console.log(productData);
 
-    return (
-        <Layout>
-            {/*<div className={styles.wrapper}>*/}
-            {/*    <div>*/}
-            {/*        <Image*/}
-            {/*            src={productData.image}*/}
-            {/*            alt={productData.title}*/}
-            {/*            width={100}*/}
-            {/*            height={100}*/}
-            {/*            className={styles.image}*/}
-            {/*        />*/}
-
-            {/*        <div>Category: {productData.category}</div>*/}
-            {/*    </div>*/}
-
-            {/*    <div>*/}
-            {/*        <div>{productData.title}</div>*/}
-            {/*        <div>{productData.description}</div>*/}
-            {/*        <div>Rating {productData.rating.rate} from {productData.rating.count} users.</div>*/}
-            {/*        <div>*/}
-            {/*            <div>{productData.price}</div>*/}
-            {/*            <div>Buy</div>*/}
-            {/*        </div>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
-        </Layout>
-    );
-
-    // if (!productData) {
-    //     return (
-    //         <Layout>
-    //             <div className={styles.wrapper}>
-    //                 <div>
-    //                     <Image
-    //                         src={productData.image}
-    //                         alt={productData.title}
-    //                         width={100}
-    //                         height={100}
-    //                         className={styles.image}
-    //                     />
-    //
-    //                     <div>Category: {productData.category}</div>
-    //                 </div>
-    //
-    //                 <div>
-    //                     <div>{productData.title}</div>
-    //                     <div>{productData.description}</div>
-    //                     <div>Rating {productData.rating.rate} from {productData.rating.count} users.</div>
-    //                     <div>
-    //                         <div>{productData.price}</div>
-    //                         <div>Buy</div>
-    //                     </div>
-    //                 </div>
-    //             </div>
-    //         </Layout>
-    //     );
-    // } else {
-    //     return null;
-    // }
+    if (productData) {
+        return (
+            <Layout>
+                <ProductDetail productData={productData}/>
+            </Layout>
+        );
+    } else {
+        return null;
+    }
 }

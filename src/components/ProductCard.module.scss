@@ -72,20 +72,3 @@
   align-items: center;
   justify-content: space-between;
 }
-
-.button {
-  width: 50%;
-  height: 35px;
-  background-color: black;
-  color: white;
-  border: 5px solid black;
-  text-align: center;
-  vertical-align: center;
-  font-weight: 700;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    color: black;
-    background-color: white;
-  }
-}

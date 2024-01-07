@@ -4,10 +4,9 @@ import React, {useEffect} from "react";
 import Layout from "@/components/Layout";
 import {useDispatch, useSelector} from "react-redux";
 import {ProductSliceType} from "@/types";
-import {useRouter} from "next/router";
 import {usePathname} from "next/navigation";
 import getProductsByCategory from "@/requests/getProductsByCategory";
-import {getProducts, setPageItems, wipeProducts} from "@/lib/features/productSlice";
+import {getProducts, setPageItems} from "@/lib/features/productSlice";
 import ProductList from "@/components/ProductList";
 import Pagination from "@/components/Pagination";
 
@@ -25,7 +24,6 @@ export default function CategoryPage () {
     const categoryName = pathname.split("/")[2];
 
     useEffect(() => {
-        // dispatch(wipeProducts());
         getProductsByCategory(categoryName).then(data => dispatch(getProducts(data)));
     }, []);
 

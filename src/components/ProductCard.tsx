@@ -4,6 +4,7 @@ import {Product} from "@/types";
 import styles from "./ProductCard.module.scss";
 import Image from "next/image";
 import Link from "next/link";
+import BuyButton from "@/components/BuyButton";
 
 export default function ProductCard({id, price, title, image, category}: Product) {
     return (
@@ -25,7 +26,7 @@ export default function ProductCard({id, price, title, image, category}: Product
             <div className={styles.category}>Category: {category}</div>
 
             <div className={styles.footer}>
-                <div className={styles.button}>Buy</div>
+                <BuyButton/>
 
                 <div className={styles.price}>${price}</div>
             </div>
