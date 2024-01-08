@@ -20,8 +20,6 @@ export default function ProductPage() {
         getProduct(productId).then(data => setProductData(data));
     }, []);
 
-    console.log(productData);
-
     if (productData) {
         return (
             <Layout>

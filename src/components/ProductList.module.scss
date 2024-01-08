@@ -1,6 +1,7 @@
 .productWrapper {
   display: flex;
   flex-wrap: wrap;
-  gap: 40px;
+  justify-content: space-between;
+  row-gap: 40px;
   padding: 15px;
 }

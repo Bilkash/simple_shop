@@ -1,0 +1,18 @@
+.cart {
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+}
+
+.wrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+.count {
+  font-size: 12px;
+  position: absolute;
+  left: 27%;
+  top: 25%;
+  font-weight: 700;
+}

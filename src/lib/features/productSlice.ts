@@ -1,4 +1,4 @@
-import { createSlice} from "@reduxjs/toolkit";
+import {createSlice} from "@reduxjs/toolkit";
 import {ProductSliceType} from "@/types";
 
 const initialState: ProductSliceType = {
@@ -9,6 +9,7 @@ const initialState: ProductSliceType = {
     endIndex: 6,
     items: [],
     categories: [],
+    searchStr: ""
 };
 
 const productSlice = createSlice({
@@ -36,6 +37,9 @@ const productSlice = createSlice({
         setCategories: (state, action) => {
             state.categories = action.payload;
         },
+        setSearchStr: (state, action) => {
+            state.searchStr = action.payload;
+        }
     }
 });
 
@@ -47,6 +51,7 @@ export const {
     setEndIndex,
     setPageItems,
     setCategories,
+    setSearchStr
 } = productSlice.actions;
 
 export default productSlice.reducer;

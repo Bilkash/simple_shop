@@ -1,0 +1,41 @@
+@import "../style/media_mixins";
+
+.searchWrapper {
+  margin-left: 15px;
+  width: 220px;
+
+  @include media-query(s_sm) {
+    margin-left: 0;
+    width: 60%;
+  }
+
+  @include media-query(m_sm) {
+    margin-left: 0;
+    width: 60%;
+  }
+
+  @include media-query(l_sm) {
+    margin-left: 0;
+    width: 60%;
+  }
+
+  @include media-query(tablet) {
+    width: 50%;
+  }
+
+  @include media-query(s_pc) {
+    width: 50%;
+  }
+
+  @include media-query(m_pc) {
+    width: 50%;
+  }
+
+  @include media-query(l_pc) {
+    width: 350px;
+  }
+
+  @include media-query(xl_pc) {
+    width: 50%;
+  }
+}

@@ -34,7 +34,7 @@ export default function ProductDetail({productData}: ProductDetailProps) {
                 <div className={styles.priceSection}>
                     <div>${productData.price}</div>
 
-                    <BuyButton/>
+                    <BuyButton id={productData.id}/>
                 </div>
             </div>
         </div>

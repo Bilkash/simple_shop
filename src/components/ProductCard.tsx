@@ -9,7 +9,7 @@ import BuyButton from "@/components/BuyButton";
 export default function ProductCard({id, price, title, image, category}: Product) {
     return (
         <div className={styles.wrapper}>
-            <Link href={`/product/${id}`}>
+            <Link href={`/product/${id}`} className={styles.imageLink}>
                 <Image
                     src={image}
                     alt={title}
@@ -26,7 +26,7 @@ export default function ProductCard({id, price, title, image, category}: Product
             <div className={styles.category}>Category: {category}</div>
 
             <div className={styles.footer}>
-                <BuyButton/>
+                <BuyButton id={id}/>
 
                 <div className={styles.price}>${price}</div>
             </div>

@@ -10,7 +10,18 @@ export interface ProductSliceType {
   endIndex: number,
   items: Product[],
   categories: string[],
-};
+  searchStr: string,
+}
+
+export interface CartSliceType {
+  items: CartItem[],
+  sum: number;
+}
+
+export type CartItem = {
+  id: number;
+  count: number;
+}
 
 export type Product = {
   id: number;

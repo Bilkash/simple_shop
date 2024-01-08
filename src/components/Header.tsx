@@ -6,13 +6,11 @@ import Image from "next/image";
 import cartSvg from "../../public/cart.svg";
 
 import styles from "./Header.module.scss";
-import {InputAdornment, TextField} from "@mui/material";
-import {Box} from "@mui/system";
-import SearchIcon from '@mui/icons-material/Search';
 import MenuIcon from '@mui/icons-material/Menu';
 import {useDispatch, useSelector} from "react-redux";
-import {AppType} from "@/types";
 import {openSideBar} from "@/lib/features/appSlice";
+import SearchField from "@/components/SearchField";
+import Cart from "@/components/Cart";
 
 export default function Header(): React.JSX.Element {
     const dispatch = useDispatch();
@@ -23,27 +21,9 @@ export default function Header(): React.JSX.Element {
                 <MenuIcon/>
             </div>
 
-            <Box className={styles.searchWrapper}>
-                <TextField
-                    label="Search"
-                    id="outlined-size-small"
-                    fullWidth
-                    defaultValue=""
-                    size="small"
-                    InputProps={{
-                        endAdornment: <InputAdornment position="end">
-                            <SearchIcon/>
-                        </InputAdornment>,
-                    }}
-                />
-            </Box>
+            <SearchField/>
 
-            <Image
-                priority
-                src={cartSvg}
-                alt="cart"
-                className={styles.cart}
-            />
+            <Cart/>
         </div>
     );
 }
