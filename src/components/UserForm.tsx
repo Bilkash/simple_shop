@@ -9,7 +9,8 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import {setUserContactNumber, setUserEmail, setUserName} from "@/lib/features/userSlice";
 import {useRouter} from "next/navigation";
-import {wipeCart} from "@/lib/features/cartSlice";
+import sendEmail from "../service/sendMail";
+import sendEmailAboutOrder from "@/requests/sendEmailAboutOrder";
 
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
@@ -50,6 +51,8 @@ export default function UserForm() {
                 console.log("Order Data");
                 console.log({user: values, cart: items});
                 console.log("\n");
+
+                sendEmailAboutOrder(values.name, values.contactNumber, values.email);
             }}
         >
             {({errors, touched}) => (

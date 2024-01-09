@@ -3,10 +3,9 @@ import transporter from '@/lib/nodemailer';
 export default async function sendEmail({ subject, text, to }) {
     const mailOptions = {
         from: process.env.GMAIL_APP_USERNAME,
-        to, // The person you want your email to be sent
+        to,
         subject,
         text,
-        // You can also add in HTML if you dont want plain text
     };
 
     return new Promise((resolve, reject) => {
