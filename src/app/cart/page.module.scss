@@ -1,0 +1,21 @@
+.orderButton {
+  position: fixed;
+  bottom: 20px;
+  right: 50px;
+  height: 35px;
+  padding: 10px;
+  width: 200px;
+  color: white;
+  border: 5px solid black;
+  background-color: black;
+  text-align: center;
+  vertical-align: center;
+  font-weight: 700;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    color: black;
+    background-color: white;
+  }
+}

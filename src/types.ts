@@ -18,6 +18,11 @@ export interface CartSliceType {
   sum: number;
 }
 
+export type ProductInCart = {
+  item: Product,
+  count: number
+}
+
 export type CartItem = {
   id: number;
   count: number;
@@ -35,3 +40,9 @@ export type Product = {
     count: number;
   };
 };
+
+export interface UserSliceType {
+  name: string,
+  email: string,
+  contactNumber: string
+}

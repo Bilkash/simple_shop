@@ -27,9 +27,21 @@ const cartSlice = createSlice({
                 existingItem.count -= 1;
             }
         },
+        removeProduct: (state, action) => {
+            state.items = state.items.filter((item) => item.id !== action.payload);
+        },
+        wipeCart: (state) => {
+            state.items = [];
+        }
     }
 });
 
-export const {addProduct, incrementCount, decrementCount} = cartSlice.actions;
+export const {
+    addProduct,
+    incrementCount,
+    decrementCount,
+    removeProduct,
+    wipeCart
+} = cartSlice.actions;
 
 export default cartSlice.reducer;
