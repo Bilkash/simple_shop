@@ -1,30 +1,42 @@
 "use client";
 
 import React, {useEffect} from "react";
-import Layout from "@/components/Layout";
 import {useDispatch, useSelector} from "react-redux";
-import {ProductSliceType} from "@/types";
-import {usePathname} from "next/navigation";
+import {usePathname, useRouter} from "next/navigation";
+
 import getProductsByCategory from "@/requests/getProductsByCategory";
-import {getProducts, setPageItems} from "@/lib/features/productSlice";
+import {getProducts, setLoading, setPageItems} from "@/lib/features/productSlice";
 import ProductList from "@/components/ProductList";
 import Pagination from "@/components/Pagination";
+import Loading from "@/components/Loading";
+import Layout from "@/components/Layout";
+
+import {ProductSliceType} from "@/types";
 
 export default function CategoryPage () {
     const dispatch = useDispatch();
     const pathname = usePathname();
+    const routes = useRouter();
     const {
         products,
         items,
         startIndex,
         endIndex,
+        loading,
     } = useSelector(
         (state: {products: ProductSliceType}) => state.products
     );
     const categoryName = pathname.split("/")[2];
 
     useEffect(() => {
-        getProductsByCategory(categoryName).then(data => dispatch(getProducts(data)));
+        dispatch(setLoading(true));
+        getProductsByCategory(categoryName).then(data => {
+            dispatch(getProducts(data));
+            dispatch(setLoading(false));
+        }).catch((er: Error) => {
+            console.log(er.message);
+            routes.push("/error");
+        });
     }, []);
 
     useEffect(() => {
@@ -35,8 +47,16 @@ export default function CategoryPage () {
 
     return (
         <Layout>
-            <ProductList products={items}/>
-            <Pagination/>
+            {loading
+                ? (
+                    <Loading/>
+                )
+                : (
+                    <>
+                        <ProductList products={items}/>
+                        <Pagination/>
+                    </>
+                )}
         </Layout>
     );
 }

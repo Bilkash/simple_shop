@@ -1,7 +1,9 @@
 import React from "react";
 import {useSelector} from "react-redux";
-import {ProductSliceType} from "@/types";
+
 import Category from "@/components/Category";
+
+import {ProductSliceType} from "@/types";
 
 import styles from "./Categories.module.scss";
 

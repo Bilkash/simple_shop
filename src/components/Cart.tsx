@@ -1,11 +1,13 @@
 import React from "react";
-import cartSvg from "../../public/cart.svg";
 import Image from "next/image";
+import {useSelector} from "react-redux";
+import {useRouter} from "next/navigation";
+
+import cartSvg from "../../public/cart.svg";
+
+import {CartSliceType} from "@/types";
 
 import styles from "./Cart.module.scss";
-import {useSelector} from "react-redux";
-import {CartSliceType} from "@/types";
-import {useRouter} from "next/navigation";
 
 export default function Cart() {
     const {items} = useSelector((state: {cart: CartSliceType}) => state.cart);

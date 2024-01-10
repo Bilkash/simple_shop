@@ -1,11 +1,13 @@
 import React from "react";
-import {ProductInCart} from "@/types";
 import Image from "next/image";
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import {useDispatch} from "react-redux";
+
+import {decrementCount, incrementCount, removeProduct} from "@/lib/features/cartSlice";
+
+import {ProductInCart} from "@/types";
 
 import styles from "./CartProduct.module.scss";
-import {useDispatch} from "react-redux";
-import {decrementCount, incrementCount, removeProduct} from "@/lib/features/cartSlice";
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 interface CartProductProps {
     product: ProductInCart,

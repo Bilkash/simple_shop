@@ -1,12 +1,13 @@
 "use client";
 
 import React, {useEffect} from "react";
-
 import {useDispatch, useSelector} from "react-redux";
-import {CartItem, CartSliceType} from "@/types";
-import {addProduct, incrementCount} from "@/lib/features/cartSlice";
 import {useSnackbar} from "notistack";
+
+import {addProduct, incrementCount} from "@/lib/features/cartSlice";
 import {MyButton} from "@/components/MyButton";
+
+import {CartItem, CartSliceType} from "@/types";
 
 interface BuyButtonProps {
     id: number

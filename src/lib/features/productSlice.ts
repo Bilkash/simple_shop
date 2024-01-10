@@ -9,7 +9,8 @@ const initialState: ProductSliceType = {
     endIndex: 6,
     items: [],
     categories: [],
-    searchStr: ""
+    searchStr: "",
+    loading: false,
 };
 
 const productSlice = createSlice({
@@ -39,7 +40,10 @@ const productSlice = createSlice({
         },
         setSearchStr: (state, action) => {
             state.searchStr = action.payload;
-        }
+        },
+        setLoading: (state, action) => {
+            state.loading = action.payload;
+        },
     }
 });
 
@@ -51,7 +55,8 @@ export const {
     setEndIndex,
     setPageItems,
     setCategories,
-    setSearchStr
+    setSearchStr,
+    setLoading,
 } = productSlice.actions;
 
 export default productSlice.reducer;

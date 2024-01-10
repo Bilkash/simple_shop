@@ -4,14 +4,15 @@ import Layout from "@/components/Layout";
 import {getAllProducts} from "@/requests/getAllProducts";
 import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {getProducts, setCategories, setPageItems} from "@/lib/features/productSlice";
+import {getProducts, setLoading, setPageItems} from "@/lib/features/productSlice";
 import {Product, ProductSliceType} from "@/types";
-import ProductCard from "@/components/ProductCard";
 import Pagination from "@/components/Pagination";
-import styles from "./page.module.scss";
 import ProductList from "@/components/ProductList";
+import Loading from "@/components/Loading";
+import {useRouter} from "next/navigation";
 
 export default function Home() {
+    const routes = useRouter();
     const dispatch = useDispatch();
     const {
         products,
@@ -19,12 +20,20 @@ export default function Home() {
         startIndex,
         endIndex,
         searchStr,
+        loading,
     } = useSelector(
         (state: {products: ProductSliceType}) => state.products
     );
 
     useEffect(() => {
-        getAllProducts().then(data => dispatch(getProducts(data)));
+        dispatch(setLoading(true));
+        getAllProducts().then(data => {
+            dispatch(getProducts(data));
+            dispatch(setLoading(false));
+        }).catch((er: Error) => {
+            console.log(er.message);
+            routes.push("/error");
+        });
     }, []);
 
     useEffect(() => {
@@ -48,8 +57,16 @@ export default function Home() {
 
     return (
         <Layout>
-            <ProductList products={items}/>
-            <Pagination/>
+            {loading
+                ? (
+                    <Loading/>
+                )
+                : (
+                    <>
+                        <ProductList products={items}/>
+                        <Pagination/>
+                    </>
+                )}
         </Layout>
     );
 }

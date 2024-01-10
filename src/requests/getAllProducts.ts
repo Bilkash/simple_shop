@@ -1,9 +1,19 @@
 import {Product} from "@/types";
 
 export async function getAllProducts(): Promise<Product[]> {
-    const data = fetch('https://fakestoreapi.com/products')
-        .then(res=>res.json())
-        .then(json=> json);
+    try {
+        const response = await fetch('https://fakestoreapi.com/products');
 
-    return data;
+        if (!response.ok) {
+            throw new Error(`Failed to fetch products. Status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Error fetching products:", error);
+        throw new Error("Failed to fetch products");
+
+        return [];
+    }
 }

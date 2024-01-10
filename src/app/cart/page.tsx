@@ -1,11 +1,11 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
+import ProductInCartList from "@/components/ProductInCartList";
 import Layout from "@/components/Layout";
 
 import styles from "./page.module.scss";
-import Link from "next/link";
-import ProductInCartList from "@/components/ProductInCartList";
 
 export default function CartPage() {
     return (

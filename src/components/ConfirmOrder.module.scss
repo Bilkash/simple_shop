@@ -1,5 +1,20 @@
+@import "../style/media_mixins";
+
 .wrapper {
   display: flex;
+  flex-direction: row;
   gap: 15px;
   align-items: flex-start;
+
+  @include media-query(s_sm) {
+    flex-direction: column-reverse;
+  }
+
+  @include media-query(m_sm) {
+    flex-direction: column-reverse;
+  }
+
+  @include media-query(l_sm) {
+    flex-direction: column-reverse;
+  }
 }

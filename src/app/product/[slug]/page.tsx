@@ -1,23 +1,28 @@
 "use client";
 
 import React, {useEffect, useState} from "react";
-import Layout from "@/components/Layout";
-import {usePathname} from "next/navigation";
-import {Product} from "@/types";
-import getProduct from "@/requests/getProduct";
+import {usePathname, useRouter} from "next/navigation";
 
-import styles from "./page.module.scss";
-import Image from "next/image";
-import BuyButton from "@/components/BuyButton";
+import Layout from "@/components/Layout";
+import getProduct from "@/requests/getProduct";
 import ProductDetail from "@/components/ProductDetail";
+import Loading from "@/components/Loading";
+
+import {Product} from "@/types";
 
 export default function ProductPage() {
     const [productData, setProductData] = useState<Product | null>(null);
     const pathname = usePathname();
     const productId = pathname.split("/")[2];
+    const routes = useRouter();
 
     useEffect(() => {
-        getProduct(productId).then(data => setProductData(data));
+        getProduct(productId)
+            .then(data => setProductData(data))
+            .catch((er: Error) => {
+                console.log(er.message);
+                routes.push("/error");
+            });
     }, []);
 
     if (productData) {
@@ -27,6 +32,10 @@ export default function ProductPage() {
             </Layout>
         );
     } else {
-        return null;
+        return (
+            <Layout>
+                <Loading/>
+            </Layout>
+        );
     }
 }

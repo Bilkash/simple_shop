@@ -11,6 +11,7 @@ export interface ProductSliceType {
   items: Product[],
   categories: string[],
   searchStr: string,
+  loading: boolean,
 }
 
 export interface CartSliceType {

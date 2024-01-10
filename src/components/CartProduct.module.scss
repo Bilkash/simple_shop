@@ -4,7 +4,7 @@
 .wrapper {
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-columns: 20% 1fr 1fr 1fr 1fr;
+  grid-template-columns: auto 1fr 1fr 1fr 1fr;
   height: 200px;
   padding: 15px;
   margin: 15px;
@@ -14,24 +14,24 @@
 
   @include media-query(s_sm) {
     grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: auto 1fr 1fr;
   }
 
   @include media-query(l_sm) {
     grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: auto 1fr 1fr;
   }
 
   @include media-query(m_sm) {
     grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: auto 1fr 1fr;
   }
 }
 
 .orderWrapper {
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-columns: 1fr 1fr 15% 15%;
+  grid-template-columns: auto 1fr 15% 15%;
   height: 200px;
   padding: 15px;
   margin: 15px;
@@ -42,17 +42,17 @@
 
   @include media-query(s_sm) {
     grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto 1fr;
   }
 
   @include media-query(l_sm) {
     grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto 1fr;
   }
 
   @include media-query(m_sm) {
     grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto 1fr;
   }
 }
 
