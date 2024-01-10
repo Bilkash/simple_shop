@@ -34,7 +34,6 @@ export default function CategoryPage () {
             dispatch(getProducts(data));
             dispatch(setLoading(false));
         }).catch((er: Error) => {
-            console.log(er.message);
             routes.push("/error");
         });
     }, []);

@@ -20,7 +20,6 @@ export default function ProductPage() {
         getProduct(productId)
             .then(data => setProductData(data))
             .catch((er: Error) => {
-                console.log(er.message);
                 routes.push("/error");
             });
     }, []);

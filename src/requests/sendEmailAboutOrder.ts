@@ -27,7 +27,6 @@ export default async function sendEmailAboutOrder(
         }
 
         const result = await response.text();
-        console.log(result);
     } catch (error) {
         console.error("Error sending email:", error);
     }
